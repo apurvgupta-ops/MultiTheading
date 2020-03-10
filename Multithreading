@@ -1,0 +1,22 @@
+from time import sleep
+from threading import *
+class ABC(Thread):
+    def run(self):
+        for i in range(5):
+            print("Hello")
+            sleep(1)
+
+class DEF(Thread):
+    def run(self):
+        for i in range(5):
+            print("World")
+            sleep(1)
+
+c1=ABC()
+c2=DEF()
+c1.start()
+sleep(0.2)
+c2.start()
+c1.join()
+c2.join()
+print("done execution")
